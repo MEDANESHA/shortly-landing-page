@@ -1,33 +1,27 @@
-<template>
-  <div >
-
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-
+<template class="font-poppins">
+  <div class="font-poppins overflow-hidden">
+    <LandingPage />
   </div>
 </template>
 
 <script>
-
-
-import HelloWorld from "./components/HelloWorld.vue";
-import './assets/tailwind.css'
+import LandingPage from "./components/LandingPage.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    LandingPage,
   },
 };
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>
