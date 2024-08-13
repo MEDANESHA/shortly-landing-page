@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full px-28 py-8 font-extrabold">
+  <header class="w-full px-20 py-8 font-extrabold">
     <div class="container mx-auto flex justify-between items-center gap-[30px]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
       </nav>
       <div class="flex space-x-4 items-center ml-auto gap-[30px]">
         <a href="#" class="text-grayishViolet hover:text-black">Login</a>
-        <CostumButton bgColor="cyan" text="Sign Up" />
+        <CostumButton color="cyan" text="Sign Up" />
       </div>
     </div>
   </header>

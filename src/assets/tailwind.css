@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.shorten-bg-image {
+  @apply bg-cover bg-center bg-no-repeat;
+  background-image: url("@/assets/images/bg-shorten-desktop.svg");
+}
+@media only screen and (max-width: 768px) {
+  .shorten-bg-image {
+    @apply bg-right;
+    background-image: url("@/assets/images/bg-shorten-mobile.svg");
+    background-size: 85%;
+    background-position-y: 0px;
+    background-position-x: 200%;
+  }
+}

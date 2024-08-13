@@ -2,7 +2,7 @@
 node_modules
 /dist
 
-
+src/components/MainComponent.vue
 # local env files
 .env.local
 .env.*.local

@@ -1,27 +1,35 @@
 <template>
-  <main class="mx-auto flex items-center flex-col gap-[4rem] pt-10">
+  <main class="mx-auto flex items-center flex-col gap-28 pt-10 sm:pt-0">
+    <!-- Main Content Section -->
     <div
-      class="center flex-1 flex items-center justify-between px-4 w-full pl-28 h-full"
+      class="center flex-1 flex flex-col md:flex-row sm:flex-col-reverse items-center justify-between w-full md:pl-28 sm:gap-[20px] min-h-[20rem]"
     >
-      <section class="text-left w-11/12 ml-12">
+      <section
+        class="md:text-left sm:text-center w-full lg:w-11/12 lg:ml-12 sm:p-8"
+      >
         <h2
-          class="text-veryDarkBlue text-10xl md:text-7xl font-extrabold mb-4"
+          class="text-veryDarkBlue xl:text-7xl md:text-5xl sm:text-4xl font-extrabold mb-4"
           style="line-height: 1.2"
         >
           More than just shorter links
         </h2>
-        <p class="text-grayishViolet text-xl md:text-lg mb-8 w-8/12">
+        <p
+          class="text-grayishViolet text-base lg:text-xl mb-8 w-full lg:w-9/12"
+        >
           Build your brand's recognition and get detailed insights on how your
           links are performing.
         </p>
-        <CostumButton color="cyan" text="Get Started" />
+        <CostumButton color="cyan" text="Get Started" class="md:text-lg" />
       </section>
-      <section class="image w-5/6 translate-x-24">
+      <section
+        class="image xl:w-full md:w-[130%] mm:w-[160%] xs:w-[120%] lx:w-5/6 md:mt-4 translate-x-24"
+      >
         <img :src="svgSrc" alt="illustration working" class="w-full h-auto" />
       </section>
     </div>
+    <!-- Shorten Box and Links Section -->
     <div
-      class="shortenBoxContainer mt-8 bg-gray-brighter w-full flex items-center flex-col gap-[5px]"
+      class="shortenBoxContainer mt-8 bg-gray-brighter w-full flex items-center flex-col px-6 md:px-0"
     >
       <ShortenBox @link-shortened="addLink" />
       <LinksContainer :links="links" />
@@ -58,7 +66,9 @@ export default {
 .container {
   max-width: 100% !important;
 }
-.center {
-  max-height: 60vh;
+@media only screen and (min-width: 768px) {
+  .center {
+    max-height: 60vh;
+  }
 }
 </style>

@@ -22,7 +22,6 @@ module.exports = {
         },
         grayishViolet: "hsl(257, 7%, 63%)",
         veryDarkBlue: "hsl(255, 11%, 22%)",
-        veryDarkViolet: "hsl(260, 8%, 14%)",
         veryDarkViolet: {
           DEFAULT: "hsl(260, 8%, 14%)", // Original color
           brighter: "hsl(260, 8%, 24%)", // brighter shade
@@ -33,6 +32,11 @@ module.exports = {
       },
       fontSize: {
         body: "18px",
+      },
+      screens: {
+        mm: { min: "768px", max: "900px" },
+        sm: { max: "768px" },
+        xs: { max: "530px" },
       },
     },
   },

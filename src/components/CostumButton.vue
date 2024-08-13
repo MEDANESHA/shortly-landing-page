@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-cyan hover:bg-cyan-brighter font-bold text-white rounded-full px-7 py-[8px]"
+    class="bg-cyan hover:bg-cyan-brighter font-bold text-white rounded-full px-8 py-[10px]"
   >
     {{ text }}
   </button>
