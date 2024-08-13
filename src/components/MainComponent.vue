@@ -22,7 +22,7 @@
         <CostumButton color="cyan" text="Get Started" class="md:text-lg" />
       </section>
       <section
-        class="image xl:w-full md:w-[130%] mm:w-[160%] xs:w-[120%] lx:w-5/6 md:mt-4 translate-x-24"
+        class="image xl:w-full md:w-[130%] mm:w-[160%] xs:w-[120%] lx:w-5/6 md:mt-4 translate-x-24 sm:translate-x-16"
       >
         <img :src="svgSrc" alt="illustration working" class="w-full h-auto" />
       </section>
