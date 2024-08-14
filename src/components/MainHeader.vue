@@ -53,7 +53,7 @@
     <!-- Mobile View Menu -->
     <div
       v-if="isMenuOpen"
-      class="navbarMenu md:hidden absolute rounded-lg text-white bg-darkViolet flex items-center gap-4 flex-col space-y-4 mt-8 w-10/12 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-8 animate-scaleAndRotateIn"
+      class="navbarMenu md:hidden absolute rounded-lg text-white bg-darkViolet flex items-center gap-4 flex-col space-y-4 mt-16 w-10/12 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-8 animate-scaleAndRotateIn"
       ref="mobileMenu"
     >
       <a href="#" class="animate-staggeredSlideIn">Features</a>
@@ -64,7 +64,7 @@
         >Resources</a
       >
       <div
-        class="border-t-[1px] border-gray-100 gap-4 flex flex-col w-full items-center p-6"
+        class="border-t-[1px] border-gray-600 gap-4 flex flex-col w-full items-center p-6"
       >
         <a href="#" class="text-white animate-bounceIn animation-delay-600"
           >Login</a
@@ -179,12 +179,6 @@ export default {
   top: -1rem, 1rem;
 }
 
-.navigation__checkbox:checked + .navigation__button:hover .navigation__icon {
-  background-color: transparent;
-  transition: 0.2s;
-  pointer-events: none;
-}
-
 /* Animation for mobile menu */
 @keyframes scaleAndRotateIn {
   0% {
@@ -296,24 +290,30 @@ export default {
 .animation-delay-800 {
   animation-delay: 0.8s;
 }
+@media (min-width: 500px) and (max-width: 768px) {
+  .navigation__checkbox:checked
+    + .navigation__button:hover
+    .navigation__icon::before {
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    transition: 0.3s;
+    pointer-events: none;
+  }
 
-.navigation__checkbox:checked
-  + .navigation__button:hover
-  .navigation__icon::before {
-  top: 0;
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-  transition: 0.3s;
-  pointer-events: none;
-}
-
-.navigation__checkbox:checked
-  + .navigation__button:hover
-  .navigation__icon::after {
-  top: 0;
-  -webkit-transform: rotate(-135deg);
-  transform: rotate(-135deg);
-  transition: 0.5s;
-  pointer-events: none;
+  .navigation__checkbox:checked
+    + .navigation__button:hover
+    .navigation__icon::after {
+    top: 0;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    transition: 0.5s;
+    pointer-events: none;
+  }
+  .navigation__checkbox:checked + .navigation__button:hover .navigation__icon {
+    background-color: transparent;
+    transition: 0.2s;
+    pointer-events: none;
+  }
 }
 </style>
