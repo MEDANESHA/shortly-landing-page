@@ -1,27 +1,16 @@
-<template class="font-poppins">
-  <div class="font-poppins overflow-hidden">
-    <LandingPage />
+<template>
+  <div class="overflow-hidden font-poppins">
+    <HomePage />
   </div>
 </template>
 
 <script>
-import LandingPage from "./components/LandingPage.vue";
+import HomePage from "./pages/HomePage.vue";
 
 export default {
   name: "App",
   components: {
-    LandingPage,
+    HomePage,
   },
 };
 </script>
-
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-</style>

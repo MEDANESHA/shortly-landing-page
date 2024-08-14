@@ -1,17 +1,18 @@
 <template>
   <div class="min-h-screen flex flex-col items-center">
     <MainHeader />
-    <MainComponnet />
+    <MainLayout />
   </div>
 </template>
 
 <script>
-import MainHeader from "./MainHeader.vue";
-import MainComponnet from "./MainComponent.vue";
+import MainHeader from "../components/MainHeader.vue";
+import MainLayout from "../layouts/MainLayout.vue";
 export default {
+  name: "HomePage",
   components: {
     MainHeader,
-    MainComponnet,
+    MainLayout,
   },
 };
 </script>

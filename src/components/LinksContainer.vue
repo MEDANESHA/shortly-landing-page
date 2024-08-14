@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full md:w-2/3 mt-8 flex flex-col-reverse">
+  <!-- Container for displaying the shortened links -->
+  <div class="w-9/12 mt-8 flex flex-col-reverse">
+    <!-- Render a LinkBox component for each link -->
     <LinkBox v-for="(link, index) in links" :key="index" :link="link" />
   </div>
 </template>
@@ -10,14 +12,14 @@ import LinkBox from "./LinkBox.vue";
 export default {
   name: "LinksContainer",
   props: {
-    links: Array,
+    // Expecting an array of link objects
+    links: {
+      type: Array,
+      required: true,
+    },
   },
   components: {
     LinkBox,
   },
 };
 </script>
-
-<style scoped>
-/* Additional styles if necessary */
-</style>

@@ -36,6 +36,7 @@ module.exports = {
       screens: {
         mm: { min: "768px", max: "900px" },
         sm: { max: "768px" },
+        sxs: { min: "530px", max: "768px" },
         xs: { max: "530px" },
       },
     },

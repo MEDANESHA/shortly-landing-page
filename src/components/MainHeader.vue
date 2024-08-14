@@ -17,37 +17,41 @@
         />
       </svg>
 
-      <!-- Hamburger Icon -->
+      <!-- Hamburger Icon for mobile View navigation -->
       <div class="md:hidden navigation__container">
         <input
           type="checkbox"
           id="navi-toggle"
           class="navigation__checkbox hidden"
           v-model="isMenuOpen"
-          @click="
-            isMenuOpen = !isMenuOpen;
-            console.log('checked', isMenuOpen);
-          "
+          @click="toggleMenu"
         />
         <label for="navi-toggle" class="navigation__button">
           <span class="navigation__icon">&nbsp;</span>
         </label>
       </div>
 
-      <!-- Desktop Links -->
+      <!-- Desktop View Navigation Links -->
       <nav class="hidden md:flex space-x-8 text-grayishViolet">
         <a href="#" class="hover:text-veryDarkBlue">Features</a>
         <a href="#" class="hover:text-veryDarkBlue">Pricing</a>
         <a href="#" class="hover:text-veryDarkBlue">Resources</a>
       </nav>
 
-      <div class="hidden md:flex space-x-4 items-center ml-auto gap-[30px]">
+      <!-- Desktop Login and Sign Up Buttons -->
+      <div
+        class="hidden md:flex space-x-4 items-center lg:mr-12 ml-auto gap-[30px]"
+      >
         <a href="#" class="text-grayishViolet hover:text-veryDarkBlue">Login</a>
-        <CostumButton bgColor="cyan" text="Sign Up" />
+        <CustomButton
+          bgColor="cyan"
+          text="Sign Up"
+          class="rounded-full px-8 py-[10px]"
+        />
       </div>
     </div>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile View Menu -->
     <div
       v-if="isMenuOpen"
       class="navbarMenu md:hidden absolute rounded-lg text-white bg-darkViolet flex items-center gap-4 flex-col space-y-4 mt-6 w-10/12 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-8 animate-scaleAndRotateIn"
@@ -65,10 +69,10 @@
         <a href="#" class="text-white animate-bounceIn animation-delay-600"
           >Login</a
         >
-        <CostumButton
+        <CustomButton
           bgColor="cyan"
           text="Sign Up"
-          class="w-full animate-bounceIn animation-delay-800"
+          class="w-full rounded-full animate-bounceIn animation-delay-800 px-8 py-[10px]"
         />
       </div>
     </div>
@@ -76,24 +80,34 @@
 </template>
 
 <script>
-import CostumButton from "./CostumButton.vue";
+import CustomButton from "./CustomButton.vue";
+
 export default {
   name: "MainHeader",
   components: {
-    CostumButton,
+    CustomButton,
   },
   data() {
     return {
-      isMenuOpen: false,
+      isMenuOpen: false, // State to track if the mobile menu is open
     };
+  },
+  methods: {
+    // Toggles the mobile menu open/close state
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+      console.log("Menu toggled:", this.isMenuOpen);
+    },
   },
 };
 </script>
 
 <style scoped>
+/* Styling for the navigation and menu items  for the mobile view*/
 .navigation__container {
   height: 3rem;
 }
+
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
@@ -120,7 +134,6 @@ export default {
   content: "";
   position: absolute;
   left: 0;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
@@ -131,13 +144,6 @@ export default {
 .navigation__icon::after {
   top: 0.6rem;
 }
-.navigation__icon::before:hover {
-  cursor: pointer;
-}
-
-.navigation__icon::after:hover {
-  cursor: pointer;
-}
 
 .navigation__button {
   height: 3rem;
@@ -146,12 +152,10 @@ export default {
 .navigation__button:hover {
   cursor: pointer;
 }
-.navigation__button:hover .navigation__icon::before {
-  top: -1rem;
-}
 
+.navigation__button:hover .navigation__icon::before,
 .navigation__button:hover .navigation__icon::after {
-  top: 1rem;
+  top: -1rem, 1rem;
 }
 
 .navigation__checkbox:checked + .navigation__button:hover .navigation__icon {
@@ -160,6 +164,7 @@ export default {
   pointer-events: none;
 }
 
+/* Animation for mobile menu */
 @keyframes scaleAndRotateIn {
   0% {
     opacity: 0;
