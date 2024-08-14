@@ -3,8 +3,10 @@
   <div
     class="flex sm:flex-col justify-between sm:text-md items-center font-medium bg-white p-3 md:px-6 rounded-md mb-4 sm:overflow-hidden"
   >
-    <!-- Display the shortened URL -->
-    <span class="text-veryDarkBlue sm:w-full sm:p-2">{{ link.url }} </span>
+    <!-- Display the shortened URL with word wrapping -->
+    <span class="text-veryDarkBlue sm:w-full sm:p-2 break-all">
+      {{ link.url }}
+    </span>
 
     <!-- Divider for mobile view -->
     <span

@@ -34,6 +34,7 @@ module.exports = {
         body: "18px",
       },
       screens: {
+        betterhover: { raw: "(hover: hover)" },
         mm: { min: "768px", max: "900px" },
         sm: { max: "768px" },
         sxs: { min: "530px", max: "768px" },

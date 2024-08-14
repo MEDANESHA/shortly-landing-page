@@ -23,6 +23,7 @@
           type="checkbox"
           id="navi-toggle"
           class="navigation__checkbox hidden"
+          v-model="isMenuOpen"
           @click="toggleMenu"
         />
         <label for="navi-toggle" class="navigation__button">
@@ -174,9 +175,11 @@ export default {
   cursor: pointer;
 }
 
-.navigation__button:hover .navigation__icon::before,
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem;
+}
 .navigation__button:hover .navigation__icon::after {
-  top: -1rem, 1rem;
+  top: 1rem;
 }
 
 /* Animation for mobile menu */
