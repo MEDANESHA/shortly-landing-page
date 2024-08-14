@@ -23,7 +23,6 @@
           type="checkbox"
           id="navi-toggle"
           class="navigation__checkbox hidden"
-          v-model="isMenuOpen"
           @click="toggleMenu"
         />
         <label for="navi-toggle" class="navigation__button">
@@ -54,7 +53,8 @@
     <!-- Mobile View Menu -->
     <div
       v-if="isMenuOpen"
-      class="navbarMenu md:hidden absolute rounded-lg text-white bg-darkViolet flex items-center gap-4 flex-col space-y-4 mt-6 w-10/12 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-8 animate-scaleAndRotateIn"
+      class="navbarMenu md:hidden absolute rounded-lg text-white bg-darkViolet flex items-center gap-4 flex-col space-y-4 mt-8 w-10/12 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-8 animate-scaleAndRotateIn"
+      ref="mobileMenu"
     >
       <a href="#" class="animate-staggeredSlideIn">Features</a>
       <a href="#" class="animate-staggeredSlideIn animation-delay-200"
@@ -93,11 +93,32 @@ export default {
     };
   },
   methods: {
-    // Toggles the mobile menu open/close state
-    toggleMenu() {
+    toggleMenu(event) {
+      event.stopPropagation(); // Prevent the event from propagating to the document click listener
+
+      // Toggle the menu state
       this.isMenuOpen = !this.isMenuOpen;
-      console.log("Menu toggled:", this.isMenuOpen);
+
+      if (this.isMenuOpen) {
+        document.addEventListener("click", this.closeMenuIfClickedOutside);
+      } else {
+        document.removeEventListener("click", this.closeMenuIfClickedOutside);
+      }
     },
+    closeMenuIfClickedOutside(event) {
+      // Check if the click was outside the mobile menu and the hamburger icon
+      if (
+        this.$refs.mobileMenu &&
+        !this.$refs.mobileMenu.contains(event.target) &&
+        !event.target.closest(".navigation__button")
+      ) {
+        this.isMenuOpen = false;
+        document.removeEventListener("click", this.closeMenuIfClickedOutside);
+      }
+    },
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.closeMenuIfClickedOutside);
   },
 };
 </script>
