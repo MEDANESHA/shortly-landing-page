@@ -12,17 +12,8 @@ Shortly is a URL shortening service that allows users to easily shorten long URL
 ## Project Setup
 
 ### Install Dependencies
-
 ```bash
 npm install
-
-
-## Project setup
-
-```
-
-npm install
-
 ```
 
 ### Compiles and hot-reloads for development
@@ -68,4 +59,4 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
-```
+
